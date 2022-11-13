@@ -1,0 +1,49 @@
+@apiV1 = http://127.0.0.1:3000/api/v1
+
+###################################
+GET {{apiV1}} HTTP/1.1
+# {
+#   "message": "عملیات موفقیت آمیز بود"
+# }
+
+###
+
+POST {{apiV1}}/auth/register HTTP/1.1
+content-type: application/json
+
+{
+    "userName" : "omid rasouli",
+    "mobile": "09170000000",
+    "email": "omid@gmail.com",
+    "password": "omid1234",
+    "passwordConfirmation": "omid1234"
+}
+
+###
+POST {{apiV1}}/auth/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "payload": "09170000000",
+    "password": "omid1234"
+}
+
+###
+GET {{apiV1}}/user/profile HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4Mjk4ODE5LCJleHAiOjE2NjgzODUyMTl9.PxKMVj6VJjD_KcA50SajoKNbPWxQT3dTnA81PqE687A
+
+
+####
+####
+POST {{apiV1}}/edit/user/profile HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4Mjk4ODE5LCJleHAiOjE2NjgzODUyMTl9.PxKMVj6VJjD_KcA50SajoKNbPWxQT3dTnA81PqE687A
+
+{
+    "firstName": "omid",
+    "lastName": "rasouli",
+    "email": "omid@gmail.com",
+    "mobile": "09170000000",
+    "skills": ["programming", "nodejs"],
+}
