@@ -17,8 +17,9 @@ const projectSchema = new Schema(
     },
     image: {
       type: String,
-      required: true,
+      required: false,
       trim: true,
+      default: null,
     },
     owner: {
       type: Schema.Types.ObjectId,
@@ -28,11 +29,21 @@ const projectSchema = new Schema(
     team: {
       type: Schema.Types.ObjectId,
       ref: "Team",
-      required: true,
+      required: false,
+      default: null,
     },
     isPrivate: {
       type: Boolean,
       default: false,
+    },
+    tags: {
+      type: [
+        {
+          type: String,
+        },
+      ],
+      required: false,
+      default: [],
     },
   },
   {

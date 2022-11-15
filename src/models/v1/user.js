@@ -36,6 +36,12 @@ const userSchema = new Schema(
       trim: true,
       unique: true,
     },
+    avatar: {
+      type: String,
+      required: false,
+      trim: true,
+      default: null
+    },
     roles: {
       type: [
         {
