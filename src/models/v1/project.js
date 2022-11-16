@@ -9,6 +9,11 @@ const projectSchema = new Schema(
       maxLength: 255,
       trim: true,
     },
+    slug: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     text: {
       type: String,
       required: false,

@@ -7,5 +7,5 @@ module.exports = {
     auth,
     project,
     team,
-    user
+    user,
 };

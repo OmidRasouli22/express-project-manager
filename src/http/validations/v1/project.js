@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
 const createNewProject = async (req, res, next) => {
-    try {
+  try {
         let schema = Joi.object({
           title: Joi.string().required().max(255).messages({
             "string.base": `عنوان پروژه باید از نوع رشته ای باشد`,
@@ -30,7 +30,6 @@ const createNewProject = async (req, res, next) => {
         req.body = { ...req.body, ...validationResult };
         return next();
       } catch (error) {
-        console.log(error);
         let errors = [];
         errors = error.details.map((err) => err.message);
         return res.status(400).json({ errors });

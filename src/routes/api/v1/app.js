@@ -4,6 +4,7 @@ const router = Router();
 //* Controllers
 const userController = require("../../../http/controllers/v1/userController");
 const projectController = require("../../../http/controllers/v1/projectController");
+const teamController = require("../../../http/controllers/v1/teamController");
 
 //* Middlewares
 const userAuthenticate = require("../../../http/middlewares/userAuthenticate");
@@ -92,11 +93,78 @@ router.post(
   projectController.createProject
 );
 
+// edit a project
+router.put(
+  "/projects/edit/:project_id",
+  userAuthenticate.handle,
+  validation.project.createNewProject,
+  upload.single("image"),
+  (req, res, next) => {
+    req.tunnel = {
+      size: 2048,
+      mimeTypes: [
+        "image/jpg",
+        "image/jpeg",
+        "image/png",
+        "image/svg",
+        "image/gif",
+      ],
+    };
+    next();
+  },
+  fileUploadCheck.handle,
+  projectController.updateProject
+);
+
 // all projects
 router.get(
-  "/all/projects",
+  "/all/projects/:project_id",
   userAuthenticate.handle,
   projectController.getAllProjects
+);
+
+// find one project
+router.get(
+  "/projects/find/one/:project_id",
+  userAuthenticate.handle,
+  projectController.getProjectById
+);
+
+// delete a project
+router.delete(
+  "/projects/:project_id",
+  userAuthenticate.handle,
+  projectController.deleteProject
+);
+
+//!!!!!!!!!!! Team Routes
+router.post(
+  "/team/create",
+  userAuthenticate.handle,
+  validation.team.createTeam,
+  teamController.createTeam
+);
+
+router.get("/team/all", userAuthenticate.handle, teamController.allTeam);
+
+router.get(
+  "/team/find/one/:team_id",
+  userAuthenticate.handle,
+  teamController.findOneTeam
+);
+
+router.get("/user/teams", userAuthenticate.handle, teamController.getMyTeams);
+
+router.delete(
+  "/teams/:team_id",
+  userAuthenticate.handle,
+  teamController.deleteTeam
+);
+
+router.put(
+  "/invite/:team_id/user/:user_id",
+  userAuthenticate.handle,
+  teamController.inviteUserToTeam
 );
 
 module.exports = router;

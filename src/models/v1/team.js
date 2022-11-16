@@ -6,7 +6,19 @@ const teamSchema = new Schema(
     name: {
       type: String,
       required: true,
-      maxLength: 100,
+      maxLength: 255,
+      trim: true,
+    },
+    userName: {
+      type: String,
+      required: true,
+      maxLength: 255,
+      trim: true,
+      unique: true
+    },
+    slug: {
+      type: String,
+      required: true,
       trim: true,
     },
     description: {
@@ -25,7 +37,12 @@ const teamSchema = new Schema(
         ref: "User",
       },
     ],
-    projects: [],
+    projects: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Project",
+      },
+    ],
   },
   {
     timestamps: true,

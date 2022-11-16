@@ -2,8 +2,18 @@ const fs = require("fs");
 
 exports.handle = (req, res, next) => {
   try {
+    // check that user upload image
+    if (
+      (req.method = "PUT" || req.query._method === "PUT") &&
+      req.file === undefined
+    ) {
+      return next();
+    }
+
     const { size: fileSize, mimeTypes } = req.tunnel;
     const { size, mimetype } = req.file;
+
+    if (!req.file) throw new Error("اپلود عکس الزامی است");
 
     if (size >= fileSize)
       throw new Error("حجم فایل آپلودی بیشتر از حجم مجاز است");

@@ -5,6 +5,7 @@ const cors = require("cors");
 const helmet = require("helmet");
 const dotEnv = require("dotenv");
 const bodyParser = require("body-parser");
+const methodOverride = require('method-override');
 
 const { connectToDatabase } = require("./src/utils/dbConnection");
 const routes = require('./src/routes');
@@ -17,8 +18,9 @@ dotEnv.config();
 global.config = require("./config");
 
 //* Use BodyParser
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
 
 //* Set Static Folder
 app.use(express.static(path.join(__dirname, "public")));

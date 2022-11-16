@@ -79,3 +79,61 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2Z
     "isPrivate":"true",
     "tags": ["tag1", "tag2"]
 }
+
+#### get all projects
+GET {{apiV1}}/all/projects HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NTI3MjE3LCJleHAiOjE2Njg2MTM2MTd9.OTy1oomQzxvoLGiIuau3NN9ftenvXY6adosW_3DF0io
+
+##### find one project
+GET {{apiV1}}/projects/find/one/6373c8a0003a2fb38b74ba0b HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NTI3MjE3LCJleHAiOjE2Njg2MTM2MTd9.OTy1oomQzxvoLGiIuau3NN9ftenvXY6adosW_3DF0io
+
+##### delete one project
+DELETE {{apiV1}}/projects/6373c333e5c4e57e9d802481 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NTI3MjE3LCJleHAiOjE2Njg2MTM2MTd9.OTy1oomQzxvoLGiIuau3NN9ftenvXY6adosW_3DF0io
+
+##### edit one project
+PUT {{apiV1}}/projects/edit/6373c8a0003a2fb38b74ba0b HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NTI3MjE3LCJleHAiOjE2Njg2MTM2MTd9.OTy1oomQzxvoLGiIuau3NN9ftenvXY6adosW_3DF0io
+
+{
+    "title": "asdasd",
+    "text": "ascxcxvxc",
+    "isPrivate": true,
+    "tags": ["zxczxc"]
+}
+
+##### create a new Team
+POST {{apiV1}}/team/create HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NjE0ODg3LCJleHAiOjE2Njg3MDEyODd9.sJV6YexxggKzKj0m2QJd1D4x4Er2BdPHYhGwWmMLpro
+
+{
+    "name": "team1",
+    "description": "description for team1",
+    "userName": "team1"
+}
+
+##### find one team
+GET {{apiV1}}/team/find/one/63750b7f55cce3040845b766 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NjE0ODg3LCJleHAiOjE2Njg3MDEyODd9.sJV6YexxggKzKj0m2QJd1D4x4Er2BdPHYhGwWmMLpro
+
+##### get user teams
+GET {{apiV1}}/user/teams HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NjE0ODg3LCJleHAiOjE2Njg3MDEyODd9.sJV6YexxggKzKj0m2QJd1D4x4Er2BdPHYhGwWmMLpro
+
+##### delete one team
+DELETE {{apiV1}}/teams/63750b7f55cce3040845b766 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NjE0ODg3LCJleHAiOjE2Njg3MDEyODd9.sJV6YexxggKzKj0m2QJd1D4x4Er2BdPHYhGwWmMLpro
+
+##### invite user
+PUT {{apiV1}}/invite/637531479cfc71fe6954a33a/user/636e5c7ae0fe1d4005e78db0 HTTP/1.1
+Content-Type: application/json; charset=utf-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNjM2ZTVjN2FlMGZlMWQ0MDA1ZTc4ZGIwIiwiaWF0IjoxNjY4NjI0NzcxLCJleHAiOjE2Njg3MTExNzF9.l8PbCGaZ6sPslzLM3bKnFue65IttKSonRYTWcVpv1R8
